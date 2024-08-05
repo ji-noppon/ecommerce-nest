@@ -1,4 +1,10 @@
-import { Injectable, Inject, HttpException, HttpStatus, HttpCode } from '@nestjs/common';
+import {
+  Injectable,
+  Inject,
+  HttpException,
+  HttpStatus,
+  HttpCode,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -34,7 +40,8 @@ export class UserService {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
     return {
-      message: 'success'
+      status: HttpStatus.CREATED,
+      message: 'success',
     };
   }
 
